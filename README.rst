@@ -54,5 +54,5 @@ To identify the EC2 IP address from the terraform.tfstate file, execute the comm
 
 .. code-block:: shell
 
-    jq -r '.resources[] | select(.type == "aws_instance") | .instances[] | .attributes.public_ip' terraform.tfstate.
+    jq -r '.resources[] | select(.type == "aws_instance") | .instances[] | .attributes.public_ip' terraform.tfstate
 
