@@ -1,5 +1,5 @@
 ==================================
-My Terraform Project for AWS EC2
+Terraform for AWS EC2
 ==================================
 
 This project sets up a t2.micro EC2 instance running Amazon Linux 2 in the us-west-2 region, with an SSH-accessible security group.
@@ -50,4 +50,9 @@ Once the resources have been created, you can SSH into the EC2 instance using th
 
     ssh -i /path/to/your/private/key.pem ec2-user@<ec2-public-ip>
 
-To identify the EC2 IP address from the `terraform.tfstate` file, execute the command `jq -r '.resources[] | select(.type == "aws_instance") | .instances[] | .attributes.public_ip' terraform.tfstate`.
+To identify the EC2 IP address from the terraform.tfstate file, execute the command:
+
+.. code-block:: shell
+
+    jq -r '.resources[] | select(.type == "aws_instance") | .instances[] | .attributes.public_ip' terraform.tfstate.
+
