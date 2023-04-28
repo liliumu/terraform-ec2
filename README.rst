@@ -49,3 +49,5 @@ Once the resources have been created, you can SSH into the EC2 instance using th
 .. code-block:: bash
 
     ssh -i /path/to/your/private/key.pem ec2-user@<ec2-public-ip>
+
+To identify the EC2 IP address from the `terraform.tfstate` file, execute the command `jq -r '.resources[] | select(.type == "aws_instance") | .instances[] | .attributes.public_ip' terraform.tfstate`.
